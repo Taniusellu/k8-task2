@@ -1,0 +1,37 @@
+apiVersion: v1
+
+kind: ReplicationController
+
+metadata:
+
+  name: jenkins-test
+
+spec:
+
+  replicas: 1
+
+  selector:
+
+    app: jenkins-test-pod
+
+  template:
+
+    metadata:
+
+      name: jenkins-test-pod
+
+      labels:
+
+        app: jenkins-test-pod
+
+    spec:
+
+      containers:
+
+      - name: jenkins
+
+        image: jenkins
+
+        ports:
+
+        - containerPort: 80
