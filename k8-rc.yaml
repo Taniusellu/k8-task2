@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+
+  name: k8-rc
+
+  labels:
+
+   app: k8-rc
+   
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: k8-rc-pod
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: k8-rc-pod
+
+    spec:
+
+      containers:
+
+      - name: nginx
+
+        image: nginx
